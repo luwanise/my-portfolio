@@ -28,7 +28,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Simple Recipe App",
+      title: "Recipe App",
       description: "A lightweight recipe application that helps users discover and follow delicious recipes with detailed instructions and ingredient lists.",
       technologies: ["React Native", "TypeScript", "Expo"],
       image: recipeAppImage,
