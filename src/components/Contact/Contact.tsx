@@ -1,79 +1,92 @@
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { BsCheck2Circle } from 'react-icons/bs';
 import './Contact.css';
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 const Contact = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-
+  const [submitted, setSubmitted] = useState(false);
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
-  const handleSubmit = async (e: FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     // Simulate form submission
-    try {
-      // In a real application, you would send this data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubmitMessage('Message sent successfully! I will get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setSubmitMessage('Failed to send message. Please try again.');
-    } finally {
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    }, 1500);
   };
-
+  
   return (
     <section id="contact" className="contact">
       <div className="container">
         <div className="section-title">
-          <h2>Contact Me</h2>
-          <p>Let's get in touch</p>
+          <h2>Get In Touch</h2>
+          <p>Let's work together on your next project</p>
         </div>
-
+        
         <div className="contact-content">
           <div className="contact-info">
             <div className="contact-item">
-              <FaEnvelope className="contact-icon" />
+              <div className="contact-icon">
+                <FaEnvelope />
+              </div>
               <div>
                 <h4>Email</h4>
-                <p>luwanise@gmail.com</p>
+                <p>luwanise@example.com</p>
               </div>
             </div>
+            
             <div className="contact-item">
-              <FaPhone className="contact-icon" />
+              <div className="contact-icon">
+                <FaPhone />
+              </div>
               <div>
                 <h4>Phone</h4>
-                <p>+234-707-337-6285</p>
+                <p>+234 707 337 6285</p>
               </div>
             </div>
+            
             <div className="contact-item">
-              <FaMapMarkerAlt className="contact-icon" />
+              <div className="contact-icon">
+                <FaMapMarkerAlt />
+              </div>
               <div>
                 <h4>Location</h4>
                 <p>Ibadan, Nigeria</p>
               </div>
             </div>
           </div>
-
+          
           <div className="contact-form-container">
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input
@@ -83,8 +96,10 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  placeholder="Your name"
                 />
               </div>
+              
               <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <input
@@ -94,8 +109,23 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  placeholder="your.email@example.com"
                 />
               </div>
+              
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  placeholder="What is this regarding?"
+                />
+              </div>
+              
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -105,17 +135,22 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                ></textarea>
+                  placeholder="Your message here..."
+                />
               </div>
+              
               <button 
                 type="submit" 
-                className="btn btn-primary" 
+                className="btn btn-primary"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
-              {submitMessage && (
-                <p className="submit-message">{submitMessage}</p>
+              
+              {submitted && (
+                <div className="submit-message">
+                  <BsCheck2Circle /> Message sent successfully!
+                </div>
               )}
             </form>
           </div>

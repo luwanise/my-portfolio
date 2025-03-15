@@ -1,4 +1,5 @@
 import './Projects.css';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 // Import the images
 import notesAppImage from '../../assets/project_images/notes-app.jpeg'
@@ -51,7 +52,7 @@ const Projects = () => {
       <div className="container">
         <div className="section-title">
           <h2>My Projects</h2>
-          <p>Check out my latest work</p>
+          <p>Check out my latest mobile app development work</p>
         </div>
 
         <div className="projects-grid">
@@ -75,8 +76,12 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Demo</a>
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">View Code</a>
+                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    <span>View Demo</span> <FaExternalLinkAlt />
+                  </a>
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                    <span>View Code</span> <FaGithub />
+                  </a>
                 </div>
               </div>
             </div>
