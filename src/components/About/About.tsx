@@ -1,4 +1,5 @@
 import './About.css';
+import avatar from '../../../avatar.jpg';
 
 const About = () => {
   const skills = [
@@ -38,7 +39,7 @@ const About = () => {
 
         <div className="about-content">
           <div className="about-image">
-            <img src="/avatar.jpg" alt="Profile" />
+            <img src={avatar} alt="Profile" />
           </div>
           <div className="about-text">
             <h3>Who am I?</h3>
