@@ -33,8 +33,8 @@ const About = () => {
     <section id="about" className="about">
       <div className="container">
         <div className="section-title">
-          <h2>About Me</h2>
-          <p>Get to know me better</p>
+          <h2>Your Vision, My Code</h2>
+          <p>You dream it, I build it. Let’s create something that stands out.</p>
         </div>
 
         <div className="about-content">

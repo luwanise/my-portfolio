@@ -25,7 +25,7 @@ const Projects = () => {
       technologies: ["React Native", "TypeScript", "Expo", "Firebase"],
       image: sharebiteImage,
       demoLink: "https://example.com",
-      codeLink: "https://github.com",
+      codeLink: "https://github.com/luwanise/sharebite",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Projects = () => {
       technologies: ["React Native", "TypeScript", "Expo"],
       image: recipeAppImage,
       demoLink: "https://example.com",
-      codeLink: "https://github.com",
+      codeLink: "https://github.com/luwanise/recipe-app",
     },
     {
       id: 3,
@@ -43,7 +43,7 @@ const Projects = () => {
       technologies: ["React Native", "TypeScript", "AsyncStorage"],
       image: notesAppImage,
       demoLink: "https://example.com",
-      codeLink: "https://github.com",
+      codeLink: "https://github.com/luwanise/notes-app",
     },
   ];
 
