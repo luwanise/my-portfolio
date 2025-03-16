@@ -12,6 +12,9 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -57,6 +60,9 @@
 .project-info {
   padding: 1.8rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-info h3 {
@@ -105,14 +111,19 @@
 
 .project-links {
   display: flex;
+  justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 .project-links a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
 }
 
 .project-links a svg {
@@ -127,4 +138,11 @@
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.btn {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

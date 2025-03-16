@@ -1,5 +1,5 @@
 import './Projects.css';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 // Import the images
 import notesAppImage from '../../assets/project_images/notes-app.jpeg'
@@ -12,7 +12,6 @@ interface Project {
   description: string;
   technologies: string[];
   image: string;
-  demoLink: string;
   codeLink: string;
 }
 
@@ -24,7 +23,6 @@ const Projects = () => {
       description: "A food donation platform that connects donors with recipients in their local area, reducing food waste and helping those in need.",
       technologies: ["React Native", "TypeScript", "Expo", "Firebase"],
       image: sharebiteImage,
-      demoLink: "https://example.com",
       codeLink: "https://github.com/luwanise/sharebite",
     },
     {
@@ -33,7 +31,6 @@ const Projects = () => {
       description: "A lightweight recipe application that helps users discover and follow delicious recipes with detailed instructions and ingredient lists.",
       technologies: ["React Native", "TypeScript", "Expo"],
       image: recipeAppImage,
-      demoLink: "https://example.com",
       codeLink: "https://github.com/luwanise/recipe-app",
     },
     {
@@ -42,7 +39,6 @@ const Projects = () => {
       description: "An intuitive note-taking application with create, edit, and delete functionality, designed with a responsive user interface and offline storage capabilities.",
       technologies: ["React Native", "TypeScript", "AsyncStorage"],
       image: notesAppImage,
-      demoLink: "https://example.com",
       codeLink: "https://github.com/luwanise/notes-app",
     },
   ];
@@ -76,10 +72,7 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    <span>View Demo</span> <FaExternalLinkAlt />
-                  </a>
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                     <span>View Code</span> <FaGithub />
                   </a>
                 </div>
